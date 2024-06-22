@@ -1,0 +1,13 @@
+rbac:
+  # Specifies whether rbac resources should be created
+  create: true
+
+clusterName: ${clusterName}
+
+serviceAccount:
+  name: ${serviceAccountName}
+  annotations: 
+    eks.amazonaws.com/role-arn: ${alb_irsa}
+
+enableServiceMutatorWebhook: false
+

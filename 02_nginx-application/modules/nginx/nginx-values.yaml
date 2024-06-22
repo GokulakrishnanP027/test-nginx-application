@@ -1,0 +1,18 @@
+ingress:
+  enabled: true
+  path: "/*"
+  hostname: ""
+  annotations:
+    alb.ingress.kubernetes.io/load-balancer-name: test-nginx-application
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/target-type: ip
+    kubernetes.io/ingress.class: alb
+    alb.ingress.kubernetes.io/tags: Name=test-nginx-application, env=dev, managedBy=helm
+    alb.ingress.kubernetes.io/ip-address-type: ipv4
+    alb.ingress.kubernetes.io/backend-protocol: HTTP
+    alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 80}]'
+
+replicaCount: 2
+
+service:
+  type: ClusterIP
